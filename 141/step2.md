@@ -66,6 +66,36 @@ public class Solution {
     }
 }
 ```
+関数の先頭のnullチェックが不要なパターンならこちらでもいい。
+ただ、先頭にnullチェックがあったほうが、レビュワーに対してnullを確実に弾いていることを一目でわかるようにできるメリットはある。
+```java
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        Set<ListNode> visited = new HashSet<ListNode>();
+        ListNode node = head;
+        while(node != null) {
+            if (visited.contains(node)) {
+                return true;
+            }
+            visited.add(node);
+            node = node.next;
+        }
+        return false;
+    }
+}
+```
+
 
 ## 他の人のコードを読む
 https://github.com/kt-from-j/leetcode/pull/1
