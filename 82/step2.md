@@ -103,7 +103,7 @@ class Solution {
         ListNode node = head;
         while (node != null) {
             if (node.next == null || node.val != node.next.val) {
-                tail.next = node;
+                tail.next = new ListNode(node.val);
                 tail = tail.next;
                 node = node.next;
             } else {
